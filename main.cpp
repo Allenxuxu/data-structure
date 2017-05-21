@@ -22,13 +22,19 @@ int main(void)
 {
     try
     {
-        throw Exception("test", __FILE__, __LINE__);
+        THROW_EXCEPTION(ArithmeticException,"aaaa");
+    }
+    catch (ArithmeticException& e)          //因为父子兼容性原则，所以子类的放在上面
+    {
+        cout << e.message() << endl;
+        cout << e.location() << endl;
     }
     catch (Exception& e)
     {
         cout << e.message() << endl;
         cout << e.location() << endl;
     }
+
       SmartPointer<Test> sp = new Test();
 
     return 0;
