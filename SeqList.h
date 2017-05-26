@@ -1,7 +1,7 @@
 #ifndef SEQLIST_H
 #define SEQLIST_H
 #include "List.h"
-
+#include "Exception.h"
 namespace  XXLib
 {
 template <typename T>
@@ -82,7 +82,7 @@ public:
           }
           else
           {
-
+                THROW_EXCEPTION(ArithmeticException,"aaaa");
           }
       }
 
