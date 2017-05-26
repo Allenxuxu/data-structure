@@ -12,4 +12,5 @@ HEADERS += \
     SmartPointer.h \
     Exception.h \
     Object.h \
-    List.h
+    List.h \
+    SeqList.h
