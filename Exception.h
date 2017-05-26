@@ -1,4 +1,4 @@
-#ifndef  EXCEPTION_H
+#ifndef   EXCEPTION_H
 #define  EXCEPTION_H
 
 namespace XXLib
@@ -22,7 +22,7 @@ namespace XXLib
         virtual const char* message()const;
         virtual const char* location()const;
 
-        virtual ~Exception() =0;
+        virtual ~Exception()=0;
     };
 
     class ArithmeticException : public Exception

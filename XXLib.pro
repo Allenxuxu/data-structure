@@ -4,9 +4,13 @@ CONFIG -= app_bundle
 CONFIG -= qt
 
 SOURCES += main.cpp \
-    Exception.cpp
+    Exception.cpp \
+    Object.cpp
 
 HEADERS += \
     Singleton.h \
     SmartPointer.h \
-    Exception.h
+    Exception.h \
+    Object.h \
+    List.h \
+    SeqList.h

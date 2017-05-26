@@ -1,12 +1,15 @@
 #include <iostream>
 #include "SmartPointer.h"
 #include "Exception.h"
+#include "SeqList.h"
+
 using namespace std;
 using namespace XXLib;
 
 class Test
 {
 public:
+     const int a = 0;
     Test()
     {
         cout <<"Tes()"<< endl;
@@ -36,6 +39,9 @@ int main(void)
     }
 
       SmartPointer<Test> sp = new Test();
+
+
+
 
     return 0;
 }

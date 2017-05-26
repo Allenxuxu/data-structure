@@ -6,7 +6,7 @@ namespace XXLib
 {
     void Exception::init(const char* messge, const char* file, int line)
     {
-        m_message = _strdup(messge);
+        m_message = strdup(messge);
         if (file != NULL)
         {
             char sl[16] = { 0 };
