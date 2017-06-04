@@ -9,6 +9,7 @@ class DynamicArray :public Array<T>
 {
 protected:
     int m_length;
+
 public:
     DynamicArray(int length)
     {
