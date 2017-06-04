@@ -2,45 +2,40 @@
 #include "SmartPointer.h"
 #include "Exception.h"
 #include "SeqList.h"
+#include "StaticList.h"
+#include "DynamicList.h"
+#include "StaticArray.h"
+#include "DynamicArray.h"
 
 using namespace std;
 using namespace XXLib;
 
-class Test
-{
-public:
-     const int a = 0;
-    Test()
-    {
-        cout <<"Tes()"<< endl;
-    }
-    ~Test()
-    {
-        cout << "~test()"<<endl;
-    }
-};
-
-
 int main(void)
 {
-    try
+    DynamicArray<int> a(10);
+    for(int i=0; i<a.length();i++)
     {
-        THROW_EXCEPTION(ArithmeticException,"aaaa");
-    }
-    catch (ArithmeticException& e)          //因为父子兼容性原则，所以子类的放在上面
-    {
-        cout << e.message() << endl;
-        cout << e.location() << endl;
-    }
-    catch (Exception& e)
-    {
-        cout << e.message() << endl;
-        cout << e.location() << endl;
+        a[i] = 1+i;
     }
 
-      SmartPointer<Test> sp = new Test();
+    for(int i=0; i<a.length();i++)
+    {
+        cout <<  "a" <<a[i]<< endl;
+    }
 
+   DynamicArray<int> b = a;
+   for(int i=0; i<b.length();i++)
+   {
+       cout <<  "b" <<b[i]<< endl;
+   }
 
+   DynamicArray<int> c(5);
+   c = a;
+
+   for(int i=0; i<c.length();i++)
+   {
+       cout << "c" <<c[i]<< endl;
+   }
 
 
     return 0;

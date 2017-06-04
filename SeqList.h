@@ -11,6 +11,11 @@ protected:
     T* m_array;
     int m_length;
 public:
+     bool insert(const T& e)
+     {
+         return insert(m_length,e);
+     }
+
       bool insert(int i, const T& e)
       {
           bool ret = false;

@@ -13,4 +13,9 @@ HEADERS += \
     Exception.h \
     Object.h \
     List.h \
-    SeqList.h
+    SeqList.h \
+    Array.h \
+    StaticArray.h \
+    StaticList.h \
+    DynamicArray.h \
+    DynamicList.h

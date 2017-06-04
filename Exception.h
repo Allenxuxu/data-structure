@@ -39,5 +39,63 @@ namespace XXLib
             return *this;
         }
     };
+
+    class  NullPointerException : public Exception
+    {
+    public :
+        NullPointerException ():Exception (0) {}
+        NullPointerException (const char* message):Exception(message) {}
+        NullPointerException(const char * file,int line):Exception(file,line){}
+        NullPointerException(const char* message,const char *file, int line):Exception(message,file,line){}
+        NullPointerException& operator =(const  NullPointerException& e)
+        {
+            Exception::operator =(e);
+            return *this;
+        }
+    };
+
+    class  IndexOutOfBoundsException : public Exception
+    {
+    public :
+        IndexOutOfBoundsException ():Exception (0) {}
+        IndexOutOfBoundsException (const char* message):Exception(message) {}
+        IndexOutOfBoundsException(const char * file,int line):Exception(file,line){}
+        IndexOutOfBoundsException(const char* message,const char *file, int line):Exception(message,file,line){}
+        IndexOutOfBoundsException& operator =(const  IndexOutOfBoundsException& e)
+        {
+            Exception::operator =(e);
+            return *this;
+        }
+    };
+
+    class  NoEnoughtMemoryException : public Exception
+    {
+    public :
+        NoEnoughtMemoryException ():Exception (0) {}
+        NoEnoughtMemoryException (const char* message):Exception(message) {}
+        NoEnoughtMemoryException(const char * file,int line):Exception(file,line){}
+        NoEnoughtMemoryException(const char* message,const char *file, int line):Exception(message,file,line){}
+        NoEnoughtMemoryException& operator =(const  NoEnoughtMemoryException& e)
+        {
+            Exception::operator =(e);
+            return *this;
+        }
+    };
+        class  InvalidParaterException : public Exception
+        {
+        public :
+            InvalidParaterException ():Exception (0) {}
+            InvalidParaterException (const char* message):Exception(message) {}
+            InvalidParaterException(const char * file,int line):Exception(file,line){}
+            InvalidParaterException(const char* message,const char *file, int line):Exception(message,file,line){}
+            InvalidParaterException& operator =(const  InvalidParaterException& e)
+            {
+                Exception::operator =(e);
+                return *this;
+            }
+         };
 }
+
+
+
 #endif
