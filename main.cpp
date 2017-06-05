@@ -34,7 +34,7 @@ int main(void)
 
    for(int i=0; i<c.length();i++)
    {
-       cout << "c" <<c[i]<< endl;
+       cout << "c" <<c[100]<< endl;
    }
 
 
