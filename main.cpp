@@ -6,37 +6,29 @@
 #include "DynamicList.h"
 #include "StaticArray.h"
 #include "DynamicArray.h"
-
+#include "LinkList.h"
+#include "StaticLinkList.h"
+#include "SharedPointer.h"
+#include "CircleList.h"
+#include "DualLinkList.h"
 using namespace std;
 using namespace XXLib;
 
 int main(void)
 {
-    DynamicArray<int> a(10);
-    for(int i=0; i<a.length();i++)
+    DualLinkList<int> a;
+    for(int i = 0; i < 5; i++)
     {
-        a[i] = 1+i;
+       cout<< a.insert(i) << endl;;
+        cout << i <<endl;
+        //a.insert(1,1);
     }
-
-    for(int i=0; i<a.length();i++)
+    cout <<"length: " << a.length() << endl;
+    for(a.move(0); !a.end(); a.next())
     {
-        cout <<  "a" <<a[i]<< endl;
+        cout << a.current() <<endl;
+        a.remove(a.find(a.current()));
     }
-
-   DynamicArray<int> b = a;
-   for(int i=0; i<b.length();i++)
-   {
-       cout <<  "b" <<b[i]<< endl;
-   }
-
-   DynamicArray<int> c(5);
-   c = a;
-
-   for(int i=0; i<c.length();i++)
-   {
-       cout << "c" <<c[100]<< endl;
-   }
-
 
     return 0;
 }

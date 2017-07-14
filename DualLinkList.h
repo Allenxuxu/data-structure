@@ -1,5 +1,5 @@
-#ifndef LINKLIST_H
-#define LINKLIST_H
+#ifndef DUALLINKLIST_H
+#define DUALLINKLIST_H
 #include "List.h"
 #include "Object.h"
 #include "Exception.h"
@@ -7,19 +7,21 @@
 namespace XXLib
 {
 template <typename T>
-class LinkList : public List<T>
+class DualLinkList : public List<T>
 {
 protected:
     struct Node :public Object
     {
         T value;
         Node* next;
+        Node* pre;
     };
 
     mutable struct : public Object
     {
         char reserved[sizeof ( T)];
         Node* next;
+        Node* pre;
     }m_header;
 
    // Node m_header;
@@ -51,9 +53,10 @@ protected:
     }
 
 public:
-    LinkList()
+    DualLinkList()
     {
         m_header.next = NULL;
+        m_header.pre = NULL;
         m_length = 0 ;
         m_current =NULL;
         m_step = 0;
@@ -74,10 +77,22 @@ public:
                if(node != NULL)
                {
                     Node* currect = position(i);
-
+                    Node* next = currect->next;
                     node->value = e;
-                    node->next = currect->next;
+                    node->next = next;
                     currect->next = node;
+                    if(currect != reinterpret_cast<Node*>(&m_header))
+                    {
+                        node->pre = currect;
+                    }
+                    else
+                    {
+                            node->pre = NULL;
+                    }
+                    if(next != NULL)
+                    {
+                        next->pre = node;
+                    }
                     m_length++;
                }
                else
@@ -95,13 +110,19 @@ public:
         {
             Node* currect = position(i);
             Node* toDel = currect->next;
+            Node* next = toDel->next;
             if(m_current == toDel)
             {
-                m_current = toDel->next;
+                 m_current = next;
             }
-            currect->next = toDel->next;
+            currect->next = next;
+            if(next != NULL)
+            {
+                  next->pre = currect;
+            }
+
             m_length--;
-            destroy(toDel);        
+            destroy(toDel);
         }
         return ret;
     }
@@ -203,6 +224,17 @@ public:
         return (i == m_step);
     }
 
+    virtual bool pre()
+    {
+        int i = 0;
+        while ((i < m_step) && (!end()))
+        {
+            m_current = m_current->pre;
+            i++;
+        }
+        return (i == m_step);
+    }
+
     virtual T current()
     {
         if( !end() )
@@ -217,16 +249,15 @@ public:
 
     virtual bool end()
     {
-        return (m_current == NULL);
+        return  (m_length ==0) || (m_current == NULL);
     }
 
 
-    ~LinkList()
+    ~DualLinkList()
     {
         clear();
     }
 };
 
 }
-
-#endif // LINKLIST_H
+#endif // DUALLINKLIST_H
