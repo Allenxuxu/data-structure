@@ -12,24 +12,21 @@
 #include "CircleList.h"
 #include "DualLinkList.h"
 #include "DualCircleList.h"
+#include"StaticStack.h"
+#include "LinkStack.h"
 using namespace std;
 using namespace XXLib;
 
 int main(void)
 {
-    DualCircleList<int> a;
-    for(int i = 0; i < 5; i++)
-    {
-        a.insert(i);
-        cout << i <<endl;
-        //a.insert(1,1);
-    }
-    cout <<"length: " << a.length() << endl;
-   for(a.move(a.length()-1); !a.end(); a.next())
-    {
-        cout << a.current() <<endl;
-        a.remove(a.find(a.current()));
-    }
+  LinkStack<int > a;
 
-    return 0;
+  for(int i =0; i< 6; i++)
+  a.push(i);
+for(int i =0; i< 9; i++)
+{
+  cout <<a.top();
+    a.pop();
+}
+  return 0;
 }
