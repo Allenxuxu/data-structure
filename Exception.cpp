@@ -50,8 +50,8 @@ namespace XXLib
         {
             free(m_message);
             free(m_location);
-            m_message = _strdup(e.m_message);
-            m_location = _strdup(e.m_location);
+            m_message = strdup(e.m_message);
+            m_location = strdup(e.m_location);
         }
         return *this;
     }
