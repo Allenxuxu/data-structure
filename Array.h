@@ -55,7 +55,7 @@ public:
         return const_cast<Array<T>&>(*this)[i];
     }
 
-    virtual length()const =0;
+    virtual int length()const =0;
 };
 }
 
