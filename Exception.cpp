@@ -1,7 +1,7 @@
 #include "Exception.h"
 #include <cstring>
 #include <cstdlib>
-
+#include <cstdio>
 namespace XXLib
 {
     void Exception::init(const char* messge, const char* file, int line)
@@ -10,7 +10,8 @@ namespace XXLib
         if (file != NULL)
         {
             char sl[16] = { 0 };
-            itoa(line, sl, 10);
+//            itoa(line, sl, 10);
+            snprintf(sl, sizeof(sl), "%d", line);
             m_location = static_cast<char*>(malloc(strlen(file) + strlen(sl) + 2));
             if (m_location != NULL)
             {
