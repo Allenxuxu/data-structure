@@ -3,7 +3,7 @@
 using namespace std;
 namespace XXLib
 {
-    void *Object::operator new(unsigned int size) throw()
+    void *Object::operator new(size_t size) throw()
     {
         return malloc(size);
     }
@@ -13,7 +13,7 @@ namespace XXLib
         free(p);
     }
 
-    void* Object::operator new[](unsigned int size) throw()
+    void* Object::operator new[](size_t size) throw()
     {
         return malloc(size);
     }
