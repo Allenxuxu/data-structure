@@ -1,7 +1,7 @@
 #ifndef BTREE_H
 #define BTREE_H
 
-#include "tree.h"
+#include "Tree.h"
 
 namespace XXLib
 {
