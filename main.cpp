@@ -72,7 +72,7 @@ int main(void)
     btree.insert(22,n);
 
 
-    cout << btree.find(22);
+//    cout << btree.find(22);
 
 
 
