@@ -20,8 +20,8 @@
 #include <cstring>
 #include "Sort.h"
 #include <ctime>
-#include <Gtree.h>
-#include "btree.h"
+#include "Gtree.h"
+#include "Btree.h"
 using namespace std;
 using namespace XXLib;
 

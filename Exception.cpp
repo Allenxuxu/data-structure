@@ -41,8 +41,8 @@ namespace XXLib
 
     Exception::Exception(const Exception& e)
     {
-        m_message = _strdup(e.m_message);
-        m_location = _strdup(e.m_location);
+        m_message = strdup(e.m_message);
+        m_location = strdup(e.m_location);
     }
     Exception& Exception::operator= (const Exception& e)
     {
