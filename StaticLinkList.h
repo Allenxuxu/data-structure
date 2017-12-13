@@ -10,7 +10,7 @@ protected:
     typedef  typename LinkList<T>::Node Node;
     struct SNode: public Node
     {
-        void* operator new(unsigned int size, void* loc)
+        void* operator new(size_t size, void* loc)
         {
             (void)size;
             return loc;
