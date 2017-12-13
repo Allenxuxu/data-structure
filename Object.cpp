@@ -1,6 +1,5 @@
 #include "Object.h"
 #include <cstdlib>
-#include <iostream>
 using namespace std;
 namespace XXLib
 {
@@ -26,7 +25,6 @@ namespace XXLib
 
     bool Object::operator ==(const Object &obj)
     {
-        cout << " == ";
         return (this == &obj);
     }
 

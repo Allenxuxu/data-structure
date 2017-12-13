@@ -8,8 +8,8 @@ namespace   XXLib
     class List : public Object
     {
     protected:
-            List(const List& );
-            List& operator = (const List&);
+            List(const List& );                                     //链表不允许进行拷贝构造
+            List& operator = (const List&);                 //链表不允许进行复制操作
     public:
             List(){}
 

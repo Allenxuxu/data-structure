@@ -32,6 +32,6 @@ namespace XXLib
             delete this->m_pointer;
 		}
 
-	};
+    };
 }
 #endif

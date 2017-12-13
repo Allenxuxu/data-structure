@@ -31,7 +31,7 @@ public:
         }
         else
         {
-            THROW_EXCEPTION(InvalidParaterException,"No space in current stack ...");
+            THROW_EXCEPTION(InvalidParameterException,"No space in current stack ...");
         }
     }
 
@@ -44,7 +44,7 @@ public:
         }
         else
         {
-            THROW_EXCEPTION(InvalidParaterException,"No element in current stack ...");
+            THROW_EXCEPTION(InvalidParameterException,"No element in current stack ...");
         }
     }
 
@@ -56,7 +56,7 @@ public:
         }
         else
         {
-            THROW_EXCEPTION(InvalidParaterException,"No space in current stack ...");
+            THROW_EXCEPTION(InvalidParameterException,"No space in current stack ...");
         }
     }
 

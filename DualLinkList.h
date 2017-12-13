@@ -243,7 +243,7 @@ public:
         }
         else
         {
-                THROW_EXCEPTION(InvalidParaterException,"No value at current position ...");
+                THROW_EXCEPTION(InvalidParameterException,"No value at current position ...");
         }
     }
 

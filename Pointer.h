@@ -10,9 +10,8 @@ namespace XXLib
     protected:
         T* m_pointer;
     public:
-        Pointer(T* p = NULL)
-        {
-            m_pointer = p;
+        Pointer(T* p = NULL) : m_pointer (p)
+        {          
         }
         T* operator ->()
         {

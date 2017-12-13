@@ -5,7 +5,8 @@ CONFIG -= qt
 
 SOURCES += main.cpp \
     Exception.cpp \
-    Object.cpp
+    Object.cpp \
+    XXString.cpp
 
 HEADERS += \
     Singleton.h \
@@ -29,4 +30,12 @@ HEADERS += \
     DualCircleList.h \
     Stack.h \
     StaticStack.h \
-    LinkStack.h
+    LinkStack.h \
+    Queue.h \
+    StaticQueue.h \
+    LinkQueue.h \
+    XXString.h \
+    Sort.h \
+    Tree.h \
+    Gtree.h \
+    Btree.h

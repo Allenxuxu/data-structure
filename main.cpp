@@ -14,19 +14,66 @@
 #include "DualCircleList.h"
 #include"StaticStack.h"
 #include "LinkStack.h"
+#include "StaticQueue.h"
+#include "LinkQueue.h"
+#include "XXString.h"
+#include <cstring>
+#include "Sort.h"
+#include <ctime>
+#include <Gtree.h>
+#include "btree.h"
 using namespace std;
 using namespace XXLib;
 
+int* pmt(const char* p)
+{
+    int len = strlen(p);
+    int * ret =  static_cast<int*>(malloc(sizeof(int) *len ));
+    if( ret != NULL)
+    {
+        int ll = 0;
+        ret[0] = 0;
+
+        for (int i=1; i<len; i++)
+        {
+            while((ll > 0) && (p[ll] != p[i]))
+            {
+                ll = ret[ll-1];
+            }
+
+            if (p[ll] == p[i])
+            {
+                ll++;
+            }
+            ret[i] = ll;
+        }
+    }
+    return ret;
+
+
+}
+
+
+
 int main(void)
 {
-  LinkStack<int > a;
+    BTree<int> btree;
+    BTreeNode<int>* n = NULL;
 
-  for(int i =0; i< 6; i++)
-  a.push(i);
-for(int i =0; i< 9; i++)
-{
-  cout <<a.top();
-    a.pop();
-}
-  return 0;
+    btree.insert(1,NULL);
+
+    n = btree.find(1);
+
+    btree.insert(11,n);
+    btree.insert(12,n);
+
+    n=btree.find(11);
+    btree.insert(21,n);
+    btree.insert(22,n);
+
+
+    cout << btree.find(22);
+
+
+
 }
