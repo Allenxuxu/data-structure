@@ -51,7 +51,6 @@ public:
 
     T operator [] (int i) const
     {
-
         return const_cast<Array<T>&>(*this)[i];
     }
 

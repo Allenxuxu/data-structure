@@ -22,58 +22,126 @@
 #include <ctime>
 #include "Gtree.h"
 #include "Btree.h"
+#include "Graph.h"
+#include "MatrixGraph.h"
+#include "ListGraph.h"
 using namespace std;
 using namespace XXLib;
 
-int* pmt(const char* p)
+void DFS(Graph<double, int>& graph, int v,Array<int>& visited)
 {
-    int len = strlen(p);
-    int * ret =  static_cast<int*>(malloc(sizeof(int) *len ));
-    if( ret != NULL)
+    if( (0<=v && (v<=visited.length())))
     {
-        int ll = 0;
-        ret[0] = 0;
+        cout << v << endl;
+        visited[v] =true;
 
-        for (int i=1; i<len; i++)
+        SharedPointer<Array<int> > aj = graph.getAdjacent(v);
+        for(int i=0;i <aj->length(); i++)
         {
-            while((ll > 0) && (p[ll] != p[i]))
+            if( !visited[ (*aj)[i] ] )
             {
-                ll = ret[ll-1];
+                DFS(graph,(*aj)[i], visited);
             }
-
-            if (p[ll] == p[i])
-            {
-                ll++;
-            }
-            ret[i] = ll;
         }
     }
-    return ret;
+    else
+    {
 
-
+    }
 }
 
 
+void DFS(Graph<double,int>& graph, int v)
+{
+    DynamicArray<int> visited(graph.vCount());
+    for( int i=0; i<visited.length(); i++)
+    {
+        visited[i] = false;
+    }
+
+    DFS(graph, v,visited);
+}
+
+void test()
+{
+    ListGraph<double , int> map(6);
+
+    map.setVertex(0,1);
+    map.setVertex(1,2);
+    map.setVertex(2,9);
+    map.setVertex(3,2);
+    map.setVertex(4,2);
+    map.setVertex(5,2);
+    cout << "----------------------" << endl;
+    cout << map.setEdge(0,1,10);
+    cout << map.setEdge(1,0,11);
+    cout<<  map.setEdge(0,2,11);
+    cout<<  map.setEdge(2,0,11);
+    cout<< map.setEdge(0,3,10);
+    cout<< map.setEdge(3,0,10);
+    cout<< map.setEdge(4,1,10);
+    cout<< map.setEdge(1,4,10);
+    cout<< map.setEdge(4,5,10);
+    cout<< map.setEdge(5,4,10);
+    cout << endl<< "----------------------" << endl;
+    cout <<  map.vCount() << endl;
+    cout << map.getEdge(0,1) << endl;
+    SharedPointer<Array<int> > p = map.getAdjacent(0);
+    int i = -1;
+    for( int k=0; k < p->length(); k++)
+    {
+        cout <<"bool :"<< p->get(k,i)<< endl;
+        cout <<i<<endl;
+    }
+    SharedPointer< Array<int> > sa = map.BFS(0);
+    for( int i=0; i < sa->length(); i++)
+    {
+        cout << "   " << (*sa)[i] <<endl;
+    }
+
+    cout <<"55555" << endl;
+    DFS(map,0);
+
+}
+
+template< typename V, typename E>
+Graph<V,E>& GraphComple()
+{
+    static ListGraph<V,E> g(5);
+
+    if(
+    g.setEdge(0,1,10) &&
+    g.setEdge(0,3,30) &&
+    g.setEdge(0,4,100) &&
+
+    g.setEdge(1,2,50) &&
+
+    g.setEdge(2,4,10) &&
+
+    g.setEdge(3,2,20) &&
+    g.setEdge(3,4,60) )
+    {
+        cout << "complete ok!" << endl;
+    }
+
+    return g;
+}
 
 int main(void)
 {
-    BTree<int> btree;
-    BTreeNode<int>* n = NULL;
+    try
+    {
+    Graph<int,int>& g = GraphComple<int, int>();
+    SharedPointer< Array<int> > p =g.dijkstra(0,4,5555);
 
-    btree.insert(1,NULL);
-
-    n = btree.find(1);
-
-    btree.insert(11,n);
-    btree.insert(12,n);
-
-    n=btree.find(11);
-    btree.insert(21,n);
-    btree.insert(22,n);
-
-
-//    cout << btree.find(22);
-
-
-
+    for(int i=0; i<p->length(); i++)
+    {
+        cout << (*p)[i] << " ";
+    }
+    cout << endl;
+    }
+    catch( Exception& e )
+    {
+        cout << e.location() <<" " << e.message() << endl;
+    }
 }

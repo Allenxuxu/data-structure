@@ -17,7 +17,7 @@ class SharedPointer: public Pointer<T>
         this->m_pointer = obj.m_pointer;
         if(this->m_ref)
         {
-            (*(this->m_ref))++;
+            (*this->m_ref)++;
         }
     }
 
