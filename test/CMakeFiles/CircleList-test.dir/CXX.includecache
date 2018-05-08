@@ -1,0 +1,44 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+./Common/Iterartor.h
+stddef.h
+-
+
+./Common/Object.h
+cstddef
+-
+
+./Exception/Exception.h
+
+./List/CircleList.h
+LinkList.h
+./List/LinkList.h
+
+./List/LinkList.h
+List.h
+./List/List.h
+Object.h
+./List/Object.h
+Exception.h
+./List/Exception.h
+Iterartor.h
+./List/Iterartor.h
+
+./List/List.h
+Object.h
+./List/Object.h
+
+/home/xuxu/work/data-structure/test/CircleList-test.cpp
+CircleList.h
+/home/xuxu/work/data-structure/test/CircleList.h
+iostream
+-
+assert.h
+-
+

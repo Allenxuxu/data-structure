@@ -1,0 +1,42 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+./Common/CheckedDelete.h
+
+./Common/Object.h
+cstddef
+-
+
+./Exception/Exception.h
+
+./Smartpointer/Pointer.h
+Object.h
+./Smartpointer/Object.h
+
+./Smartpointer/ScopedPointer.h
+Pointer.h
+./Smartpointer/Pointer.h
+CheckedDelete.h
+./Smartpointer/CheckedDelete.h
+
+./Smartpointer/SharedPointer.h
+Pointer.h
+./Smartpointer/Pointer.h
+Exception.h
+./Smartpointer/Exception.h
+CheckedDelete.h
+./Smartpointer/CheckedDelete.h
+
+/home/xuxu/work/data-structure/test/SmartPointer-test.cpp
+ScopedPointer.h
+/home/xuxu/work/data-structure/test/ScopedPointer.h
+SharedPointer.h
+/home/xuxu/work/data-structure/test/SharedPointer.h
+iostream
+-
+

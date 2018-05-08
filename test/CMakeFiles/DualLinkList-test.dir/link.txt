@@ -1,0 +1,1 @@
+/usr/bin/c++   -g -Wall -Wextra -Werror -Wconversion -Wno-unused-parameter -Wold-style-cast -Woverloaded-virtual -Wpointer-arith -Wshadow -Wwrite-strings -march=native -MMD -rdynamic -D_GLIBCXX_USE_CXX11_ABI=0 -O0   CMakeFiles/DualLinkList-test.dir/DualLinkList-test.cpp.o  -o ../bin-debug/DualLinkList-test -rdynamic ../lib-debug/libxxlib.a 

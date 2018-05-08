@@ -1,0 +1,2 @@
+/usr/bin/ar qc lib-debug/libxxlib.a  CMakeFiles/xxlib.dir/Common/Object.cpp.o CMakeFiles/xxlib.dir/Exception/Exception.cpp.o
+/usr/bin/ranlib lib-debug/libxxlib.a

@@ -1,0 +1,34 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+./Array/Array.h
+Object.h
+./Array/Object.h
+Exception.h
+./Array/Exception.h
+
+./Array/DynamicArray.h
+Array.h
+./Array/Array.h
+Exception.h
+./Array/Exception.h
+
+./Common/Object.h
+cstddef
+-
+
+./Exception/Exception.h
+
+/home/xuxu/work/data-structure/test/DynamicArray-test.cpp
+DynamicArray.h
+/home/xuxu/work/data-structure/test/DynamicArray.h
+assert.h
+-
+iostream
+-
+

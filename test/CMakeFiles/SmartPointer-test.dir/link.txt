@@ -1,0 +1,1 @@
+/usr/bin/c++   -g -Wall -Wextra -Werror -Wconversion -Wno-unused-parameter -Wold-style-cast -Woverloaded-virtual -Wpointer-arith -Wshadow -Wwrite-strings -march=native -MMD -rdynamic -D_GLIBCXX_USE_CXX11_ABI=0 -O0   CMakeFiles/SmartPointer-test.dir/SmartPointer-test.cpp.o  -o ../bin-debug/SmartPointer-test -rdynamic ../lib-debug/libxxlib.a 
