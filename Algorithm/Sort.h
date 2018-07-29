@@ -104,6 +104,30 @@ private:
         }
     }
 
+    template <typename T>
+    static void AdjustHeap(T array[], int p, int len, bool min2max)
+    {
+        T curParent = array[p];
+        int child = 2*p + 1;   //左孩子
+        while(child < len)
+        {
+            if(child+1 < len && (min2max ? (array[child] < array[child+1]) : (array[child] > array[child+1])))
+                child++;    //较大或者较小孩子的下标
+
+            if(min2max ? (curParent < array[child]) : (curParent > array[child]))
+            {
+                array[p] = array[child];
+                //没有将curParent赋值给孩子是因为还要迭代子树，
+                //如果其孩子中有大的，会上移，curParent还要继续下移。
+                p = child;
+                child = 2*p + 1;
+            }
+            else
+                break;
+        }
+        array[p] = curParent;
+    }
+
 public:
     template <typename T>       //O(n^2)
     static void Select(T array[] , int len, bool min2max=true )
@@ -197,6 +221,19 @@ public:
     static void Quick (T array[], int len, bool min2max =true)
     {
        Quick(array,0, len-1, min2max);
+    }
+
+    template < typename T>      //O(n*logn)
+    static void Heap(T array[], int len,bool min2max = true)
+    {
+        for(int i = len /2 -1; i>=0; i--)
+            AdjustHeap(array, i, len,min2max);
+
+        for(int i = len -1; i>=0; i--)
+        {
+            Swap(array[0],array[i]);
+            AdjustHeap(array, 0, i,min2max);
+        }
     }
 };
 
